@@ -1,0 +1,740 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+:root {
+	--orange: #f79f1f;
+	--text-color-1: #444;
+	--text-color-2: #666;
+	--bg-color-1: #fff;
+	--bg-color-2: #eee;
+	--box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	text-decoration: none;
+	transition: all 0.2s linear;
+	outline: none;
+	border: none;
+	list-style: none;
+	text-transform: capitalize;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-x: hidden;
+	scroll-padding-top: 7rem;
+	scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+	width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: var(--orange);
+	border-radius: 5rem;
+}
+
+body {
+	background: var(--bg-color-2);
+}
+
+body.active {
+	--text-color-1: #fff;
+	--text-color-2: #eee;
+	--bg-color-1: #333;
+	--bg-color-2: #222;
+	--box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+	margin-top: 2rem;
+	display: inline-block;
+	font-size: 1.7rem;
+	background: var(--orange);
+	padding: 0.8rem 3rem;
+	cursor: pointer;
+	border-radius: 0.5rem;
+	color: #fff;
+}
+
+section {
+	margin: 5.5rem 1.5rem 0 0;
+}
+
+.heading {
+	text-align: center;
+	font-size: 4rem;
+	color: var(--text-color-1);
+	padding-bottom: 6rem;
+}
+
+.heading span {
+	position: relative;
+	z-index: 0;
+}
+
+.heading span::before {
+	content: "";
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+	z-index: -1;
+	background: var(--orange);
+	height: 100%;
+	width: 100%;
+	clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0 100%);
+}
+
+.btn:hover {
+	letter-spacing: 0.3rem;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: var(--bg-color-1);
+	box-shadow: var(--box-shadow);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+	padding: 1.5rem 7%;
+}
+
+.header .logo {
+	font-size: 2.5rem;
+	font-weight: bolder;
+	color: var(--text-color-1);
+}
+
+.header .logo i {
+	color: var(--orange);
+}
+
+.header .search-form {
+	background: var(--bg-color-2);
+	display: flex;
+	align-items: center;
+	width: 50rem;
+	height: 4.5rem;
+	border-radius: 0.5rem;
+}
+
+.header .search-form input {
+	width: 100%;
+	height: 100%;
+	background: none;
+	text-transform: none;
+	color: var(--bg-color-2);
+	font-size: 1.5rem;
+	padding: 1rem;
+}
+
+.header .search-form label {
+	font-size: 2rem;
+	margin-right: 1rem;
+	color: var(--text-color-1);
+	cursor: pointer;
+}
+
+.header .search-form label:hover {
+	color: var(--orange);
+}
+
+.header .icons div {
+	background: var(--bg-color-2);
+	color: var(--text-color-1);
+	width: 4.5rem;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	font-size: 2rem;
+	margin-left: 0.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	text-align: center;
+}
+
+.header .icons div:hover {
+	color: #fff;
+	background: var(--orange);
+}
+
+#search-btn {
+	display: none;
+}
+
+.header .navbar {
+	position: absolute;
+	top: 115%;
+	right: 7%;
+	background: var(--bg-color-1);
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
+	width: 25rem;
+	transform: scale(0);
+	transform-origin: top right;
+}
+
+.header .navbar.active {
+	transform: scale(1);
+}
+
+.header .navbar a {
+	display: block;
+	font-size: 1.5rem;
+	margin: 1rem;
+	padding: 1rem;
+	color: var(--text-color-2);
+	border-radius: 0.5rem;
+}
+
+.header .navbar a:hover {
+	padding-left: 2rem;
+	color: var(--bg-color-1);
+	color: var(--orange);
+}
+
+.header .login-form {
+	position: absolute;
+	top: 115%;
+	right: 7%;
+	background: var(--bg-color-1);
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
+	width: 35rem;
+	padding: 2rem;
+	transform: scale(0);
+	transform-origin: top right;
+}
+
+.header .login-form.active {
+	transform: scale(1);
+}
+
+.header .login-form .inputBox {
+	margin-bottom: 1rem;
+}
+
+.header .login-form .inputBox span {
+	font-size: 1.7rem;
+	color: var(--text-color-2);
+}
+
+.header .login-form .inputBox input {
+	width: 100%;
+	font-size: 1.5rem;
+	background: var(--bg-color-2);
+	color: var(--text-color-1);
+	margin: 0.5rem 0;
+	padding: 1rem;
+	text-transform: none;
+	border-radius: 0.5rem;
+}
+
+.header .login-form .remember {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0;
+}
+
+.header .login-form .remember label {
+	color: var(--text-color-2);
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.header .login-form .btn {
+	width: 100%;
+}
+
+/* home */
+.home {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 2rem;
+	padding-top: 7rem;
+}
+
+.home .image {
+	flex: 1 1 45rem;
+}
+
+.home .image img {
+	width: 100%;
+}
+
+.home .content {
+	flex: 1 1 45rem;
+}
+
+.home .content h3 {
+	color: var(--text-color-1);
+	font-size: 4rem;
+}
+
+.home .content p {
+	color: var(--text-color-2);
+	font-size: 1.7rem;
+	line-height: 1.7;
+	padding: 1rem 0;
+}
+
+.form-container form {
+	background: var(--bg-color-1);
+	box-shadow: var(--box-shadow);
+	border-radius: 0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2rem;
+	gap: 1rem;
+	align-items: center;
+}
+
+.form-container form .inputBox {
+	flex: 1 1 23rem;
+}
+
+.form-container form .inputBox span {
+	font-size: 1.7rem;
+	color: var(--text-color-2);
+}
+
+.form-container form .inputBox input {
+	color: var(--text-color-1);
+	background: var(--bg-color-2);
+	font-size: 1.5rem;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	text-transform: none;
+	margin: 0.5rem 0;
+	width: 100%;
+}
+
+.form-container form .btn {
+	flex: 1 1 23rem;
+}
+
+.packages .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	gap: 1.5rem;
+	padding: 0 3rem;
+}
+
+.packages .box-container .box {
+	background: var(--bg-color-1);
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
+}
+
+.packages .box-container .box .image {
+	height: 25rem;
+	width: 100%;
+	padding: 1.5rem;
+	position: relative;
+}
+
+.packages .box-container .box .image img {
+	width: 100%;
+	height: 100%;
+	border-radius: 0.5rem;
+	object-fit: cover;
+}
+
+.packages .box-container .box .image h3 {
+	position: absolute;
+	top: 2.5rem;
+	left: 2.5rem;
+	font-size: 2rem;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 0.5rem;
+	font-weight: lighter;
+	padding: 0.5rem 1.5rem;
+}
+
+.packages .box-container .box .image h3 i {
+	color: var(--orange);
+	padding: 0 0.5rem;
+}
+
+.packages .box-container .box .content {
+	padding: 1.5rem;
+	padding-top: 0;
+}
+
+.packages .box-container .box .content .price {
+	font-weight: 600;
+	font-size: 2.5rem;
+	color: var(--text-color-1);
+}
+
+.packages .box-container .box .content .price span {
+	font-weight: 400;
+	font-size: 1.5rem;
+	color: var(--text-color-2);
+	text-decoration: line-through;
+}
+
+.packages .box-container .box .content p {
+	padding: 0.5rem 0;
+	font-size: 1.5rem;
+	color: var(--text-color-2);
+	line-height: 1.7;
+}
+
+.services .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+	gap: 1.5rem;
+	padding: 0 3rem;
+}
+
+.services .box-container .box {
+	background: var(--bg-color-1);
+	box-shadow: var(--box-shadow);
+	border-radius: 0.5rem;
+	position: relative;
+	padding: 2rem;
+}
+
+.services .box-container .box span {
+	position: absolute;
+	top: 0.5rem;
+	right: 2rem;
+	color: var(--text-color-2);
+	font-size: 5rem;
+	font-weight: bolder;
+}
+
+.services .box-container .box i {
+	width: 6rem;
+	height: 6rem;
+	line-height: 6rem;
+	color: #fff;
+	background: var(--orange);
+	font-size: 2.5rem;
+	text-align: center;
+	margin-bottom: 0.5rem;
+	border-radius: 50%;
+}
+
+.services .box-container .box h3 {
+	color: var(--text-color-1);
+	font-size: 2.3rem;
+	padding: 0.7rem 0;
+}
+
+.services .box-container .box p {
+	color: var(--text-color-2);
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+.pricing .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+	gap: 1.5rem;
+	padding: 0 3rem;
+}
+
+.pricing .box-container .box {
+	box-shadow: var(--box-shadow);
+	padding: 2rem;
+	background: var(--bg-color-1);
+	text-align: center;
+	border-radius: 0.5rem;
+}
+
+.pricing .box-container .box h3 {
+	color: var(--text-color-1);
+	font-size: 2.3rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	background: var(--bg-color-2);
+}
+
+.pricing .box-container .box .price {
+	padding-top: 2rem;
+}
+
+.pricing .box-container .box .price span {
+	font-size: 2rem;
+	color: var(--text-color-2);
+}
+
+.pricing .box-container .box .price .amount {
+	font-size: 5rem;
+	color: var(--text-color-1);
+	font-weight: bolder;
+}
+
+.pricing .box-container .box ul {
+	padding: 0.5rem;
+}
+
+.pricing .box-container .box ul li {
+	font-size: 1.7rem;
+	color: var(--text-color-2);
+	padding: 1rem 0;
+}
+
+.review .review-slider {
+	box-shadow: var(--box-shadow);
+}
+
+.review .review-slider .slide {
+	background: var(--bg-color-1);
+	border-radius: 0.5rem;
+	text-align: center;
+	padding: 3rem;
+}
+
+.review .review-slider .slide img {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 0.9rem;
+}
+
+.review .review-slider .slide h3 {
+	margin-bottom: 0.9rem;
+	font-size: 2.5rem;
+	color: var(--text-color-1);
+}
+
+.review .review-slider .slide p {
+	font-size: 1.5rem;
+	line-height: 1.7;
+	color: var(--text-color-2);
+}
+
+.review .review-slider .stars {
+	padding: bottom 0.5rem;
+	padding: 1rem 0;
+}
+
+.review .review-slider .stars i {
+	font-size: 2rem;
+	color: var(--orange);
+}
+
+.swiper-pagination-bullets-dynamic {
+	color: var(--orange);
+}
+
+.contact form {
+	max-width: 70rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.contact form .inputBox {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.contact form textarea,
+.contact form .inputBox input {
+	width: 100%;
+	padding: 1rem;
+	background: var(--bg-color-1);
+	color: var(--text-color-1);
+	font-size: 1.6rem;
+	box-shadow: var(--box-shadow);
+	margin: .7rem 0;
+	border-radius: .5rem;
+	text-transform: none;
+}
+
+.contact form textarea {
+	height: 20rem;
+	resize: none;
+}
+
+.contact form .inputBox input {
+	width: 49%;
+}
+
+.blog .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+	gap: 1.5rem;
+	padding: 0 3rem;
+}
+
+.blog .box-container .box {
+	background: var(--bg-color-1);
+	border-radius: 0.5rem;
+	padding: 2rem;
+	box-shadow: var(--box-shadow);
+}
+
+.blog .box-container .box .image {
+	height: 20rem;
+	overflow: hidden;
+	width: 100%;
+	border-radius: .5rem;
+	background: var(--bg-color-2);
+}
+
+.blog .box-container .box .image img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.blog .box-container .box:hover .image img {
+	transform: scale(1.2);
+}
+
+.blog .box-container .box .content {
+	padding-top: 1rem;
+}
+
+.blog .box-container .box .content h3 {
+	font-size: 1.5rem;
+	color: var(--text-color-1);
+	line-height: 1.5;
+}
+
+.blog .box-container .box .icons {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid var(--text-color-2);
+	margin-top: 2rem;
+}
+
+.blog .box-container .box .icons a {
+	font-size: 1.5rem;
+	color: var(--text-color-2);
+}
+
+.blog .box-container .box .icons a:hover {
+	color: var(--orange);
+}
+
+.blog .box-container .box .icons a i {
+	padding-top: 1.5rem;
+	padding-right: .5rem;
+}
+
+.footer {
+	background: var(--bg-color-2);
+}
+
+.footer .box-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	gap: 1.5rem;
+	padding: 0 3rem;
+}
+
+
+.footer .box-container .box h3 {
+	font-size: 2.5rem;
+	color: var(--text-color-1);
+	padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+	font-size: 1.5rem;
+	display: block;
+	color: var(--text-color-2);
+	padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+	padding-right: .5rem;
+	color: var(--orange);
+}
+
+.footer .box-container .box a:hover i {
+	padding-right: 2rem;
+}
+
+.footer .credit {
+	font-size: 2rem;
+	color: var(--text-color-1);
+	border-top: 1px solid var(--text-color-2);
+	padding-top: 2rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.footer .credit span {
+	color: var(--orange);
+}
+
+
+
+
+/* media Quary */
+
+@media (max-width: 991px) {
+	html {
+		font-size: 55%;
+	}
+
+	.header {
+		padding: 1.5rem 2rem;
+	}
+
+	section {
+		padding: 2rem 2rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.header .navbar {
+		right: 2rem;
+	}
+
+	.header .login-form {
+		right: 2rem;
+	}
+
+	#search-btn {
+		display: inline-block;
+	}
+
+	.header .search-form {
+		position: absolute;
+		top: 115%;
+		background: var(--bg-color-1);
+		border-radius: 0.5rem;
+		width: 90%;
+		box-shadow: var(--box-shadow);
+		right: 2rem;
+		transform: scale(0);
+		transform-origin: top right;
+	}
+
+	.header .search-form.active {
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 450px) {
+	html {
+		font-size: 50%;
+	}
+
+	.contact form .inputBox input {
+		width: 100%;
+	}
+}
